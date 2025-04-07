@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ggmaina.sokomart.R
+import com.ggmaina.sokomart.navigation.ROUT_ITEM
 import com.ggmaina.sokomart.ui.theme.magenta
 
 @Composable
@@ -71,7 +72,9 @@ fun StartScreen(navController: NavController){
         )
 
         Button(
-            onClick = {},
+            onClick = {
+                navController.navigate(ROUT_ITEM)
+            },
             shape = RoundedCornerShape(10.dp),
             colors = ButtonDefaults.buttonColors(Color.Magenta),
             modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
