@@ -11,6 +11,7 @@ import com.ggmaina.sokomart.ui.screens.contact.ContactScreen
 import com.ggmaina.sokomart.ui.screens.home.HomeScreen
 import com.ggmaina.sokomart.ui.screens.intent.IntentScreen
 import com.ggmaina.sokomart.ui.screens.item.ItemScreen
+import com.ggmaina.sokomart.ui.screens.more.MoreScreen
 import com.ggmaina.sokomart.ui.screens.start.StartScreen
 
 @Composable
@@ -43,6 +44,10 @@ fun AppNavHost(
         composable(ROUT_INTENT) {
             IntentScreen(navController)
         }
+        composable(ROUT_MORE) {
+            MoreScreen(navController)
+        }
+
 
     }
 }
