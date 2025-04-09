@@ -1,6 +1,7 @@
 package com.ggmaina.sokomart.ui.screens.more
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
@@ -18,6 +20,8 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -35,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -50,6 +55,8 @@ import com.ggmaina.sokomart.navigation.ROUT_INTENT
 @Composable
 fun MoreScreen(navController: NavController){
     Column (modifier = Modifier.fillMaxSize()){
+        val mContext = LocalContext.current
+
         //Top app bar
         TopAppBar(
             title = { Text(text = "More products") },
@@ -62,7 +69,11 @@ fun MoreScreen(navController: NavController){
             ),
             //Display om the left
             navigationIcon = {
-                IconButton(onClick = {}) {
+                IconButton(onClick = {
+                    val simToolKitLaunchIntent =
+                        mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                    simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                }) {
                     Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
                 }
             },
@@ -127,7 +138,219 @@ fun MoreScreen(navController: NavController){
         Spacer(modifier = Modifier.height( 10.dp))
 
         //Row
-        Row(modifier = Modifier.padding(start = 20.dp)) {
+        Row(
+            modifier = Modifier.padding(start = 20.dp).horizontalScroll(rememberScrollState())
+        ) {
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_2),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Silver watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_3),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Smart watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_4),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Black watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_7),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Golden watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_8),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Bronze watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_5),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Analogue watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
+            //Column
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(R.drawable.img_6),
+                    contentDescription = "home",
+                    modifier = Modifier.width(150.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                    contentScale = ContentScale.FillBounds
+                )
+                Text(
+                    text = "Alloyed watches",
+                    fontSize = 15.sp
+                )
+                Text(
+                    text = "Ksh 10,000",
+                    fontSize = 15.sp
+                )
+                Button(
+                    onClick = {
+                        val simToolKitLaunchIntent =
+                            mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+                        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+                    },
+                    shape = RoundedCornerShape(10.dp),
+                    colors = ButtonDefaults.buttonColors(Color.Magenta)
+                ) {
+                    Text(text = "Purchase")
+                }
+            }
+            //End of column
+            Spacer(modifier = Modifier.width( 10.dp))
 
         }
 

@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
@@ -34,7 +35,9 @@ import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.ggmaina.sokomart.navigation.ROUT_INTENT
 import com.ggmaina.sokomart.navigation.ROUT_ITEM
+import com.ggmaina.sokomart.navigation.ROUT_MORE
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -77,6 +80,12 @@ fun IntentScreen(navController: NavController){
 
                 }) {
                     Icon(imageVector = Icons.Default.Settings, contentDescription = "")
+                }
+                IconButton(onClick = {
+                    navController.navigate(ROUT_MORE)
+
+                }) {
+                    Icon(imageVector = Icons.Default.ArrowForward, contentDescription = "")
                 }
             },
 
