@@ -8,18 +8,22 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ggmaina.sokomart.ui.screens.about.AboutScreen
 import com.ggmaina.sokomart.ui.screens.contact.ContactScreen
+import com.ggmaina.sokomart.ui.screens.crypto.CryptoScreen
 import com.ggmaina.sokomart.ui.screens.dashboard.DashboardScreen
 import com.ggmaina.sokomart.ui.screens.home.HomeScreen
+import com.ggmaina.sokomart.ui.screens.hwprojects.ProjectsScreen
 import com.ggmaina.sokomart.ui.screens.intent.IntentScreen
 import com.ggmaina.sokomart.ui.screens.item.ItemScreen
 import com.ggmaina.sokomart.ui.screens.more.MoreScreen
+import com.ggmaina.sokomart.ui.screens.service.ServiceScreen
+import com.ggmaina.sokomart.ui.screens.splash.SplashScreen
 import com.ggmaina.sokomart.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -50,6 +54,18 @@ fun AppNavHost(
         }
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController)
+        }
+        composable(ROUT_SERVICE) {
+            ServiceScreen(navController)
+        }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable(ROUT_PROJECTS) {
+            ProjectsScreen(navController)
+        }
+        composable(ROUT_CRYPTO) {
+            CryptoScreen(navController)
         }
 
 

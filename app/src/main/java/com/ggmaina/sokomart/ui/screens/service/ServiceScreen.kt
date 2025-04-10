@@ -1,12 +1,13 @@
-package com.ggmaina.sokomart.ui.screens.contact
+package com.ggmaina.sokomart.ui.screens.service
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
@@ -28,17 +29,21 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.ggmaina.sokomart.R
 import com.ggmaina.sokomart.navigation.ROUT_HOME
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ContactScreen(navController: NavController){
+fun ServiceScreen(navController: NavController){
     //Scaffold
 
     var selectedIndex by remember { mutableStateOf(0) }
@@ -47,7 +52,7 @@ fun ContactScreen(navController: NavController){
         //TopBar
         topBar = {
             TopAppBar(
-                title = { Text("Contact") },
+                title = { Text("Service") },
                 navigationIcon = {
                     IconButton(onClick = { /* Handle back/nav */ }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back")
@@ -108,12 +113,14 @@ fun ContactScreen(navController: NavController){
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
+                    .paint(painter = painterResource(R.drawable.img_20), contentScale = ContentScale.FillBounds)
+
             ) {
 
 
                 //Main Contents of the page
                 Text(text = "Welcome to Homescreen Screen", fontSize = 20.sp)
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.dp).verticalScroll(rememberScrollState()))
                 Text("This is where the main content goes.")
 
 
@@ -134,10 +141,11 @@ fun ContactScreen(navController: NavController){
     //End of scaffold
 
 
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun ContactScreenPreview(){
-    ContactScreen(navController= rememberNavController())
+fun ServiceScreenPreview(){
+    ServiceScreen(navController= rememberNavController())
 }

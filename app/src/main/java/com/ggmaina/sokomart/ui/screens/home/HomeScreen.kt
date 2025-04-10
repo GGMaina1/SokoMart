@@ -10,7 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -26,6 +28,7 @@ fun HomeScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize()
+            .paint(painter = painterResource(R.drawable.img_20), contentScale = ContentScale.FillBounds)
     ) {
         Text(
             text = "SokoMart",
